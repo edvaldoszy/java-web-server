@@ -39,7 +39,7 @@ public class Worker implements Runnable {
     @Override
     public void run() {
         try {
-            parseRequestHeader();
+            parseRequestHeaders();
             parseRequestBody();
 
             handleResponseBody();
@@ -48,7 +48,7 @@ public class Worker implements Runnable {
         }
     }
 
-    private void parseRequestHeader() throws IOException {
+    private void parseRequestHeaders() throws IOException {
         inputScanner = new Scanner(input);
         if (!inputScanner.hasNext()) {
             throw new IOException("Invalid path line");
